@@ -1,0 +1,38 @@
+*{
+  display: inline-block;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+}
+
+.images {
+  width: 970px;
+  height: 700px;
+}
+
+.redbox{
+  width: 200px;
+  height: 400px;
+  border-color: red;
+  border-style: outset;
+  border-width: 10px;
+  vertical-align: top;
+}
+
+ul, li, h1, h5, p{
+  display: block;
+  margin-left: 20px;
+}
+ul{
+  text-align: left;
+  margin-left: -20px;
+  font-weight: bold;
+}
+li {
+  display:list-item
+}
+h1, h5, p {
+  line-height: 10%;
+}
