@@ -1,0 +1,20 @@
+<html>
+  <head>
+     <title>Success</title>
+  </head>
+  <body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for message in messages %}
+          <p>{{message}}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <h3>Email Addresses Entered:</h3>
+    {% with emailRecords = records %}
+      {% for emailRecord in emailRecords %}
+        <p>{{emailRecord}}</p>
+      {% endfor %}
+    {% endwith %}
+  </body>
+</html>
