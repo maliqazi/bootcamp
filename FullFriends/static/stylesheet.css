@@ -1,0 +1,57 @@
+*{
+    font-family: sans-serif;
+}
+
+.wrapper {
+  width: 700px;
+  height: 400px;
+}
+h1 {
+  text-align: center;
+}
+
+form {
+  margin-top: 30px;
+}
+.record_sbmt {
+  display: block;
+}
+
+.record_sbmt_email{
+  margin-left: 37px;
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table th {
+    column-width: 200px;
+    border: 1px solid black;
+    text-align: left;
+  }
+
+table td {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+table td:first-child {
+    border-left: none;
+}
+
+table td:last-child {
+    border-right: none;
+}
+.row_btn form{
+  display: inline;
+}
+
+table tr {
+    transition: background 0.2s ease-in;
+}
+
+table tr:nth-child(odd) {
+    background: silver;
+}

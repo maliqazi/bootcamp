@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Friend</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheet.css') }}">
+</head>
+<body>
+    <div class="wrapper">
+    <div>
+        <h1>Edit Friend</h1>
+    </div>
+    {% with friend = FriendInfo %}
+    <form action="/friends/{{friend[0]}}" method="post" class="inputs">
+      <div class="record_sbmt">First Name: <input type="text" name="first_name" value={{friend[1]}}></div>
+      <div class="record_sbmt">Last Name: <input type="text" name="last_name" value={{friend[2]}}></div>
+      <div class="record_sbmt_email">
+        Email: <input type="text" name="email" value={{friend[3]}}>
+        <input type="submit" name="add_friend" value="Update">
+      </div>
+    </form>
+    {% endwith %}
+    </div>
+</body>
+</html>
