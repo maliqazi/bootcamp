@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Wall</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheet.css') }}">
+</head>
+<body>
+    <div class="wrapper">
+      <div class="login">
+        <form action="/login" method="post">
+          Email: <input type="text" name="email">
+          Password: <input type="text" name="password">
+          <input type="submit" name="login" value="Login">
+        </form>
+        {% with messages = get_flashed_messages(with_categories=false) %}
+          {% if messages %}
+            {% for message in messages %}
+              <p>{{message}}</p>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+      </div>
+      <div class="register">
+        <h2>Register</h2>
+        <form action="/create_user" method="post">
+          <div class="record_sbmt">First Name: <input type="text" name="first_name"></div>
+          <div class="record_sbmt">Last Name: <input type="text" name="last_name"></div>
+          <div class="record_sbmt_email">Email: <input type="text" name="email"></div>
+          <div class="record_sbmt_password">
+            Password: <input type="text" name="password">
+            <input type="submit" name="add_friend" value="Register">
+          </div>
+        </form>
+       </div>
+     </div>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+*{
+    font-family: sans-serif;
+      color: #441010;
+}
+
+.wrapper {
+  width: 700px;
+  height: 400px;
+}
+
+h2 {
+  color: #441010;
+  text-align: center;
+}
+
+.login {
+  margin-top: 30px;
+  height: 50px;
+  margin-left: 40px;
+}
+.register {
+  margin-top: 10px;
+  background-color: #907e70;
+  height: 230px;
+  border-radius: 10px;
+  border-style: dashed;
+  border-width: thin;
+}
+.record_sbmt {
+  display: block;
+  margin-left: 50px;
+}
+
+.record_sbmt_email{
+  margin-left: 87px;
+}
+
+.record_sbmt_password{
+  margin-left: 57px;
+}
+
+input {
+  margin-top: 5px;
+  border-radius: 5pt;
+}
+
+.messages{
+  margin-top: 50px;
+}
+
+.comments {
+  margin-top: 10px;
+  margin-left: 50px;
+}

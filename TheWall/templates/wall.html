@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Wall</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheet.css') }}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <h3>The Wall</h3>
+      <form action="/logout">
+        <h5>
+          Logged in as: <span>{{FirstName}} {{LastName}}</span>
+          <input type="submit" name="logout" value="Logout">
+        </h5>
+      </form>
+      <div class="post_message">
+        <form action="/post_message" method="post">
+          Post a message <textarea name="message" rows="8" cols="80"></textarea>
+          <input type="submit" name="add_message" value="Post a message">
+        </form>
+      </div>
+      <div>
+        {% with board_messages = MessageRecords %}
+          {% if board_messages %}
+            {% for board_message in board_messages %}
+              <div class="messages">
+                <p>{{board_message[1]}} {{board_message[2]}} - {{board_message[3]}}</p>
+                <p>{{board_message[4]}}</p>
+                {% with board_comments = CommentRecords %}
+                  {% if board_comments %}
+                    {% for board_comment in board_comments %}
+                      {% if board_comment[4] == board_message[0] %}
+                      <div class="comments">
+                        <p>{{board_comment[0]}} {{board_comment[1]}} - {{board_comment[2]}}</p>
+                        <p>{{board_comment[3]}}</p>
+                      </div>
+                      {% endif %}
+                    {% endfor %}
+                  {% endif %}
+                {% endwith %}
+                <form action="/post_comment/{{board_message[0]}}" method="post">
+                  <textarea name="comment" rows="4" cols="40"></textarea>
+                  <input type="submit" name="add_comment" value="Post a comment">
+                </form>
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+      </div>
+    </div>
+  </body>
+</html>
