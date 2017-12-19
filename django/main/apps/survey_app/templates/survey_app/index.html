@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'survey_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+  </head>
+  <body>
+    <div class="wrapper">
+      <form action="surveys/process" method="post">
+	      {% csrf_token %}
+	      <div>Your Name: <input type="text" name="name" id="yourname"></div>
+        <div>Dojo Location:
+          <select name="location" id="locations">
+            <option value="Mountain View">Mountain View</option>
+            <option value="Burbank">Burbank</option>
+            <option value="Seattle">Seattle</option>
+            <option value="Chicago">Chicago</option>
+          </select>
+        </div>
+        <div>Favorite language:
+          <select name="language" id="language">
+            <option value="Javascript">Javascript</option>
+            <option value="Python">Python</option>
+            <option value="C#">C#</option>
+            <option value="Java">Java</option>
+          </select>
+        </div>
+        <div>Comment (optional): </div>
+        <div><textarea name="desc" cols="33" rows="5"></textarea></div>
+	      <input type="submit" value="submit" id="submit">
+      </form>
+    </div>
+  </body>
+</html>

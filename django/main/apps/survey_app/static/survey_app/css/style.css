@@ -1,0 +1,55 @@
+* {
+  font-family: courier;
+}
+
+div {
+    display: block;
+}
+
+.wrapper {
+  width:  400px;
+  height: 300px;
+  border-style: solid;
+}
+
+.count {
+  width: 400px;
+  height: 75px;
+  border-style: solid;
+  margin-bottom: 20px;
+  background-color:  #a6cea6;
+}
+
+.count p {
+  margin: 20px 20px 20px 20px;
+}
+
+.wrapper form{
+  margin: 20px 20px 20px 20px;
+}
+
+.wrapper form div {
+  margin: 5px 5px 5px 5px;
+}
+
+#locations  {
+  margin-right: 10px;
+  position: relative;
+  right: -15px;
+}
+
+#yourname {
+  position: relative;
+  right: -15px;
+}
+#submit {
+  margin-left: 5px;
+}
+
+.wrapper p {
+  margin-left: 40px;
+}
+
+.wrapper h3 {
+  margin-left: 10px;
+}
