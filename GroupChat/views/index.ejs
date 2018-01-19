@@ -1,0 +1,77 @@
+<html>
+<head>
+<title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+         $(document). ready(function (){
+            var name = prompt("Enter your name");
+
+            var socket  = io.connect();
+
+            socket.emit("got_a_new_user", name);
+            socket.on( 'new_user', function (data){
+              $('#current').html('');
+              for ( var i=0; i < data.users.length; i++)
+              {
+                console.log(data.users[i].user_name);
+                $('#current').append('<p>'+data.users[i].user_name+'</p>');
+              }
+            });
+            $('#submit').click(function() {
+              socket.emit("new_message", {user_name: name, message: $('#message').val()})
+            });
+            socket.on('send_message', function(data){
+              $('#chatroom').append('<p>' + data.response.user_name + ': ' + data.response.message + '</p>');
+            });
+            $(window).unload(function(){
+              socket.emit("window_closed", {user_name: name});
+            });
+        });
+    </script>
+    <style>
+        *{
+          font-family: courier;
+        }
+        #signed, #chat{
+          display: inline-block;
+          vertical-align: top;
+        }
+        #current, #chatroom {
+          border-style: solid;
+          border-width: 1pt;
+          overflow-y:scroll;
+        }
+        #signed {
+          width: 250px;
+          height: 400px;
+          margin-right: 50px;
+        }
+        #current {
+          height: 300px;
+        }
+        #chatroom {
+          width: 600px;
+          height: 300px;
+        }
+        #message {
+          width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversation Board</h1>
+    <div id="signed">
+      <h3>Currently in chatroom: </h3>
+      <div id="current"></div>
+    </div>
+    <div id="chat">
+      <h3>Chatroom</h3>
+      <div id="chatroom"></div>
+    </div>
+    <div>
+      <input type="text" id="message" name="message" value="enter your message here">
+      <input type="submit" value="Send" id="submit">
+    </div>
+</body>
+</html>
